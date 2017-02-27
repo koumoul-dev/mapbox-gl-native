@@ -9,6 +9,7 @@
 #include <mbgl/gl/context.hpp>
 #include <mbgl/map/camera.hpp>
 #include <mbgl/map/map.hpp>
+#include <mbgl/map/backend_scope.hpp>
 #include <mbgl/style/conversion.hpp>
 #include <mbgl/style/conversion/layer.hpp>
 #include <mbgl/style/conversion/source.hpp>
@@ -31,6 +32,7 @@
 #include <QOpenGLContext>
 #else
 #include <QCoreApplication>
+#include <QGLContext>
 #endif
 
 #include <QDebug>
@@ -1483,6 +1485,9 @@ void QMapboxGL::render()
     }
 #endif
 
+    // The OpenGL implementation automatically enables the OpenGL context for us.
+    mbgl::BackendScope scope { *d_ptr, mbgl::BackendScope::ScopeType::Implicit };
+
     d_ptr->dirty = false;
     d_ptr->mapObj->render(*d_ptr);
 }
@@ -1552,6 +1557,20 @@ QMapboxGLPrivate::QMapboxGLPrivate(QMapboxGL *q, const QMapboxGLSettings &settin
 
 QMapboxGLPrivate::~QMapboxGLPrivate()
 {
+}
+
+/*!
+    Initializes an OpenGL extension function such as Vertex Array Objects (VAOs),
+    required by Mapbox GL Native engine.
+*/
+mbgl::gl::ProcAddress QMapboxGLPrivate::initializeExtension(const char* name) {
+#if QT_VERSION >= 0x050000
+    QOpenGLContext* thisContext = QOpenGLContext::currentContext();
+    return thisContext->getProcAddress(name);
+#else
+    const QGLContext* thisContext = QGLContext::currentContext();
+    return reinterpret_cast<mbgl::gl::ProcAddress>(thisContext->getProcAddress(name));
+#endif
 }
 
 void QMapboxGLPrivate::bind() {

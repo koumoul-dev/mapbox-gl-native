@@ -256,6 +256,7 @@ public:
 protected:
     // mbgl::Backend //
 
+    gl::ProcAddress initializeExtension(const char*) override;
     void activate() override;
     void deactivate() override;
 
