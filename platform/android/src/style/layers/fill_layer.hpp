@@ -29,18 +29,46 @@ public:
     // Property getters
     jni::Object<jni::ObjectTag> getFillAntialias(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillAntialiasTransition(jni::JNIEnv&);
+
+    void setFillAntialiasTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillOpacity(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillOpacityTransition(jni::JNIEnv&);
+
+    void setFillOpacityTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillColor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillColorTransition(jni::JNIEnv&);
+
+    void setFillColorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillOutlineColor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillOutlineColorTransition(jni::JNIEnv&);
+
+    void setFillOutlineColorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillTranslate(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillTranslateTransition(jni::JNIEnv&);
+
+    void setFillTranslateTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillTranslateAnchor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillTranslateAnchorTransition(jni::JNIEnv&);
+
+    void setFillTranslateAnchorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getFillPattern(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getFillPatternTransition(jni::JNIEnv&);
+
+    void setFillPatternTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::jobject* createJavaPeer(jni::JNIEnv&);
 
 }; // class FillLayer

@@ -36,6 +36,8 @@ import static org.junit.Assert.*;
 import static com.mapbox.mapboxsdk.style.layers.Property.*;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.*;
 
+import com.mapbox.mapboxsdk.style.TransitionOptions;
+
 /**
  * Basic smoke tests for LineLayer
  */
@@ -82,6 +84,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineCapTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-capTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineCapTransition(options);
+    assertEquals((TransitionOptions) layer.getLineCapTransition(), options);
+  }
+
+  @Test
   public void testLineCapAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-cap");
@@ -118,6 +132,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineJoinTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-joinTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineJoinTransition(options);
+    assertEquals((TransitionOptions) layer.getLineJoinTransition(), options);
+  }
+
+  @Test
   public void testLineJoinAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-join");
@@ -151,6 +177,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getLineJoin().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getLineJoin().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getLineJoin().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testLineMiterLimitTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-miter-limitTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineMiterLimitTransition(options);
+    assertEquals((TransitionOptions) layer.getLineMiterLimitTransition(), options);
   }
 
   @Test
@@ -191,6 +229,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineRoundLimitTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-round-limitTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineRoundLimitTransition(options);
+    assertEquals((TransitionOptions) layer.getLineRoundLimitTransition(), options);
+  }
+
+  @Test
   public void testLineRoundLimitAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-round-limit");
@@ -225,6 +275,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getLineRoundLimit().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getLineRoundLimit().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getLineRoundLimit().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testLineOpacityTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-opacityTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineOpacityTransition(options);
+    assertEquals((TransitionOptions) layer.getLineOpacityTransition(), options);
   }
 
   @Test
@@ -373,6 +435,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineColorTransition(options);
+    assertEquals((TransitionOptions) layer.getLineColorTransition(), options);
+  }
+
+  @Test
   public void testLineColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-color");
@@ -495,6 +569,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineTranslateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-translateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineTranslateTransition(options);
+    assertEquals((TransitionOptions) layer.getLineTranslateTransition(), options);
+  }
+
+  @Test
   public void testLineTranslateAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-translate");
@@ -529,6 +615,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getLineTranslate().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getLineTranslate().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getLineTranslate().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testLineTranslateAnchorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-translate-anchorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineTranslateAnchorTransition(options);
+    assertEquals((TransitionOptions) layer.getLineTranslateAnchorTransition(), options);
   }
 
   @Test
@@ -568,6 +666,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineWidthTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-widthTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineWidthTransition(options);
+    assertEquals((TransitionOptions) layer.getLineWidthTransition(), options);
+  }
+
+  @Test
   public void testLineWidthAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-width");
@@ -602,6 +712,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getLineWidth().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getLineWidth().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getLineWidth().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testLineGapWidthTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-gap-widthTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineGapWidthTransition(options);
+    assertEquals((TransitionOptions) layer.getLineGapWidthTransition(), options);
   }
 
   @Test
@@ -750,6 +872,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineOffsetTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-offsetTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineOffsetTransition(options);
+    assertEquals((TransitionOptions) layer.getLineOffsetTransition(), options);
+  }
+
+  @Test
   public void testLineOffsetAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-offset");
@@ -892,6 +1026,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(0f, stop.in.zoom, 0.001);
     assertEquals(0.3f, stop.in.value, 0.001f);
     assertEquals(0.9f, stop.out, 0.001f);
+  }
+
+  @Test
+  public void testLineBlurTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-blurTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineBlurTransition(options);
+    assertEquals((TransitionOptions) layer.getLineBlurTransition(), options);
   }
 
   @Test
@@ -1040,6 +1186,18 @@ public class LineLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testLineDasharrayTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-dasharrayTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLineDasharrayTransition(options);
+    assertEquals((TransitionOptions) layer.getLineDasharrayTransition(), options);
+  }
+
+  @Test
   public void testLineDasharrayAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("line-dasharray");
@@ -1073,6 +1231,18 @@ public class LineLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getLineDasharray().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getLineDasharray().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getLineDasharray().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testLinePatternTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("line-patternTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setLinePatternTransition(options);
+    assertEquals((TransitionOptions) layer.getLinePatternTransition(), options);
   }
 
   @Test

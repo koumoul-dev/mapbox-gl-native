@@ -36,6 +36,8 @@ import static org.junit.Assert.*;
 import static com.mapbox.mapboxsdk.style.layers.Property.*;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.*;
 
+import com.mapbox.mapboxsdk.style.TransitionOptions;
+
 /**
  * Basic smoke tests for SymbolLayer
  */
@@ -82,6 +84,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testSymbolPlacementTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("symbol-placementTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setSymbolPlacementTransition(options);
+    assertEquals((TransitionOptions) layer.getSymbolPlacementTransition(), options);
+  }
+
+  @Test
   public void testSymbolPlacementAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("symbol-placement");
@@ -115,6 +129,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getSymbolPlacement().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getSymbolPlacement().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getSymbolPlacement().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testSymbolSpacingTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("symbol-spacingTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setSymbolSpacingTransition(options);
+    assertEquals((TransitionOptions) layer.getSymbolSpacingTransition(), options);
   }
 
   @Test
@@ -155,6 +181,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testSymbolAvoidEdgesTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("symbol-avoid-edgesTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setSymbolAvoidEdgesTransition(options);
+    assertEquals((TransitionOptions) layer.getSymbolAvoidEdgesTransition(), options);
+  }
+
+  @Test
   public void testSymbolAvoidEdgesAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("symbol-avoid-edges");
@@ -188,6 +226,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getSymbolAvoidEdges().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getSymbolAvoidEdges().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getSymbolAvoidEdges().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconAllowOverlapTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-allow-overlapTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconAllowOverlapTransition(options);
+    assertEquals((TransitionOptions) layer.getIconAllowOverlapTransition(), options);
   }
 
   @Test
@@ -227,6 +277,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconIgnorePlacementTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-ignore-placementTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconIgnorePlacementTransition(options);
+    assertEquals((TransitionOptions) layer.getIconIgnorePlacementTransition(), options);
+  }
+
+  @Test
   public void testIconIgnorePlacementAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-ignore-placement");
@@ -260,6 +322,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconIgnorePlacement().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconIgnorePlacement().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconIgnorePlacement().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconOptionalTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-optionalTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconOptionalTransition(options);
+    assertEquals((TransitionOptions) layer.getIconOptionalTransition(), options);
   }
 
   @Test
@@ -299,6 +373,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconRotationAlignmentTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-rotation-alignmentTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconRotationAlignmentTransition(options);
+    assertEquals((TransitionOptions) layer.getIconRotationAlignmentTransition(), options);
+  }
+
+  @Test
   public void testIconRotationAlignmentAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-rotation-alignment");
@@ -332,6 +418,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconRotationAlignment().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconRotationAlignment().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconRotationAlignment().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconSizeTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-sizeTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconSizeTransition(options);
+    assertEquals((TransitionOptions) layer.getIconSizeTransition(), options);
   }
 
   @Test
@@ -372,6 +470,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconTextFitTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-text-fitTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconTextFitTransition(options);
+    assertEquals((TransitionOptions) layer.getIconTextFitTransition(), options);
+  }
+
+  @Test
   public void testIconTextFitAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-text-fit");
@@ -405,6 +515,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconTextFit().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconTextFit().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconTextFit().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconTextFitPaddingTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-text-fit-paddingTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconTextFitPaddingTransition(options);
+    assertEquals((TransitionOptions) layer.getIconTextFitPaddingTransition(), options);
   }
 
   @Test
@@ -445,6 +567,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconImageTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-imageTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconImageTransition(options);
+    assertEquals((TransitionOptions) layer.getIconImageTransition(), options);
+  }
+
+  @Test
   public void testIconImageAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-image");
@@ -478,6 +612,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconImage().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconImage().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconImage().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconRotateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-rotateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconRotateTransition(options);
+    assertEquals((TransitionOptions) layer.getIconRotateTransition(), options);
   }
 
   @Test
@@ -626,6 +772,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconPaddingTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-paddingTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconPaddingTransition(options);
+    assertEquals((TransitionOptions) layer.getIconPaddingTransition(), options);
+  }
+
+  @Test
   public void testIconPaddingAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-padding");
@@ -663,6 +821,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconKeepUprightTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-keep-uprightTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconKeepUprightTransition(options);
+    assertEquals((TransitionOptions) layer.getIconKeepUprightTransition(), options);
+  }
+
+  @Test
   public void testIconKeepUprightAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-keep-upright");
@@ -696,6 +866,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconKeepUpright().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconKeepUpright().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconKeepUpright().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconOffsetTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-offsetTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconOffsetTransition(options);
+    assertEquals((TransitionOptions) layer.getIconOffsetTransition(), options);
   }
 
   @Test
@@ -781,6 +963,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextPitchAlignmentTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-pitch-alignmentTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextPitchAlignmentTransition(options);
+    assertEquals((TransitionOptions) layer.getTextPitchAlignmentTransition(), options);
+  }
+
+  @Test
   public void testTextPitchAlignmentAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-pitch-alignment");
@@ -817,6 +1011,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextRotationAlignmentTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-rotation-alignmentTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextRotationAlignmentTransition(options);
+    assertEquals((TransitionOptions) layer.getTextRotationAlignmentTransition(), options);
+  }
+
+  @Test
   public void testTextRotationAlignmentAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-rotation-alignment");
@@ -850,6 +1056,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getTextRotationAlignment().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getTextRotationAlignment().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getTextRotationAlignment().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextFieldTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-fieldTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextFieldTransition(options);
+    assertEquals((TransitionOptions) layer.getTextFieldTransition(), options);
   }
 
   @Test
@@ -934,6 +1152,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextFontTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-fontTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextFontTransition(options);
+    assertEquals((TransitionOptions) layer.getTextFontTransition(), options);
+  }
+
+  @Test
   public void testTextFontAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-font");
@@ -967,6 +1197,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getTextFont().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getTextFont().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getTextFont().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextSizeTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-sizeTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextSizeTransition(options);
+    assertEquals((TransitionOptions) layer.getTextSizeTransition(), options);
   }
 
   @Test
@@ -1007,6 +1249,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextMaxWidthTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-max-widthTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextMaxWidthTransition(options);
+    assertEquals((TransitionOptions) layer.getTextMaxWidthTransition(), options);
+  }
+
+  @Test
   public void testTextMaxWidthAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-max-width");
@@ -1041,6 +1295,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getTextMaxWidth().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getTextMaxWidth().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getTextMaxWidth().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextLineHeightTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-line-heightTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextLineHeightTransition(options);
+    assertEquals((TransitionOptions) layer.getTextLineHeightTransition(), options);
   }
 
   @Test
@@ -1081,6 +1347,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextLetterSpacingTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-letter-spacingTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextLetterSpacingTransition(options);
+    assertEquals((TransitionOptions) layer.getTextLetterSpacingTransition(), options);
+  }
+
+  @Test
   public void testTextLetterSpacingAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-letter-spacing");
@@ -1115,6 +1393,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getTextLetterSpacing().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getTextLetterSpacing().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getTextLetterSpacing().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextJustifyTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-justifyTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextJustifyTransition(options);
+    assertEquals((TransitionOptions) layer.getTextJustifyTransition(), options);
   }
 
   @Test
@@ -1154,6 +1444,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextAnchorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-anchorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextAnchorTransition(options);
+    assertEquals((TransitionOptions) layer.getTextAnchorTransition(), options);
+  }
+
+  @Test
   public void testTextAnchorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-anchor");
@@ -1187,6 +1489,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getTextAnchor().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getTextAnchor().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getTextAnchor().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextMaxAngleTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-max-angleTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextMaxAngleTransition(options);
+    assertEquals((TransitionOptions) layer.getTextMaxAngleTransition(), options);
   }
 
   @Test
@@ -1227,6 +1541,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextRotateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-rotateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextRotateTransition(options);
+    assertEquals((TransitionOptions) layer.getTextRotateTransition(), options);
+  }
+
+  @Test
   public void testTextRotateAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-rotate");
@@ -1261,6 +1587,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getTextRotate().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getTextRotate().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getTextRotate().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextPaddingTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-paddingTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextPaddingTransition(options);
+    assertEquals((TransitionOptions) layer.getTextPaddingTransition(), options);
   }
 
   @Test
@@ -1301,6 +1639,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextKeepUprightTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-keep-uprightTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextKeepUprightTransition(options);
+    assertEquals((TransitionOptions) layer.getTextKeepUprightTransition(), options);
+  }
+
+  @Test
   public void testTextKeepUprightAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-keep-upright");
@@ -1334,6 +1684,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getTextKeepUpright().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getTextKeepUpright().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getTextKeepUpright().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextTransformTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-transformTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextTransformTransition(options);
+    assertEquals((TransitionOptions) layer.getTextTransformTransition(), options);
   }
 
   @Test
@@ -1418,6 +1780,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextOffsetTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-offsetTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextOffsetTransition(options);
+    assertEquals((TransitionOptions) layer.getTextOffsetTransition(), options);
+  }
+
+  @Test
   public void testTextOffsetAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-offset");
@@ -1452,6 +1826,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getTextOffset().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getTextOffset().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getTextOffset().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextAllowOverlapTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-allow-overlapTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextAllowOverlapTransition(options);
+    assertEquals((TransitionOptions) layer.getTextAllowOverlapTransition(), options);
   }
 
   @Test
@@ -1491,6 +1877,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextIgnorePlacementTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-ignore-placementTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextIgnorePlacementTransition(options);
+    assertEquals((TransitionOptions) layer.getTextIgnorePlacementTransition(), options);
+  }
+
+  @Test
   public void testTextIgnorePlacementAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-ignore-placement");
@@ -1527,6 +1925,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextOptionalTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-optionalTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextOptionalTransition(options);
+    assertEquals((TransitionOptions) layer.getTextOptionalTransition(), options);
+  }
+
+  @Test
   public void testTextOptionalAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-optional");
@@ -1560,6 +1970,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getTextOptional().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getTextOptional().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getTextOptional().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testIconOpacityTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-opacityTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconOpacityTransition(options);
+    assertEquals((TransitionOptions) layer.getIconOpacityTransition(), options);
   }
 
   @Test
@@ -1708,6 +2130,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconColorTransition(options);
+    assertEquals((TransitionOptions) layer.getIconColorTransition(), options);
+  }
+
+  @Test
   public void testIconColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-color");
@@ -1830,6 +2264,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconHaloColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-halo-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconHaloColorTransition(options);
+    assertEquals((TransitionOptions) layer.getIconHaloColorTransition(), options);
+  }
+
+  @Test
   public void testIconHaloColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-halo-color");
@@ -1949,6 +2395,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     // Set and Get
     layer.setProperties(iconHaloColor(Color.RED));
     assertEquals(layer.getIconHaloColorAsInt(), Color.RED);
+  }
+
+  @Test
+  public void testIconHaloWidthTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-halo-widthTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconHaloWidthTransition(options);
+    assertEquals((TransitionOptions) layer.getIconHaloWidthTransition(), options);
   }
 
   @Test
@@ -2097,6 +2555,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconHaloBlurTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-halo-blurTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconHaloBlurTransition(options);
+    assertEquals((TransitionOptions) layer.getIconHaloBlurTransition(), options);
+  }
+
+  @Test
   public void testIconHaloBlurAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-halo-blur");
@@ -2242,6 +2712,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconTranslateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-translateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconTranslateTransition(options);
+    assertEquals((TransitionOptions) layer.getIconTranslateTransition(), options);
+  }
+
+  @Test
   public void testIconTranslateAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-translate");
@@ -2279,6 +2761,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testIconTranslateAnchorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("icon-translate-anchorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setIconTranslateAnchorTransition(options);
+    assertEquals((TransitionOptions) layer.getIconTranslateAnchorTransition(), options);
+  }
+
+  @Test
   public void testIconTranslateAnchorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("icon-translate-anchor");
@@ -2312,6 +2806,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getIconTranslateAnchor().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getIconTranslateAnchor().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getIconTranslateAnchor().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextOpacityTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-opacityTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextOpacityTransition(options);
+    assertEquals((TransitionOptions) layer.getTextOpacityTransition(), options);
   }
 
   @Test
@@ -2460,6 +2966,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextColorTransition(options);
+    assertEquals((TransitionOptions) layer.getTextColorTransition(), options);
+  }
+
+  @Test
   public void testTextColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-color");
@@ -2582,6 +3100,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextHaloColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-halo-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextHaloColorTransition(options);
+    assertEquals((TransitionOptions) layer.getTextHaloColorTransition(), options);
+  }
+
+  @Test
   public void testTextHaloColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-halo-color");
@@ -2701,6 +3231,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     // Set and Get
     layer.setProperties(textHaloColor(Color.RED));
     assertEquals(layer.getTextHaloColorAsInt(), Color.RED);
+  }
+
+  @Test
+  public void testTextHaloWidthTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-halo-widthTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextHaloWidthTransition(options);
+    assertEquals((TransitionOptions) layer.getTextHaloWidthTransition(), options);
   }
 
   @Test
@@ -2849,6 +3391,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextHaloBlurTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-halo-blurTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextHaloBlurTransition(options);
+    assertEquals((TransitionOptions) layer.getTextHaloBlurTransition(), options);
+  }
+
+  @Test
   public void testTextHaloBlurAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-halo-blur");
@@ -2994,6 +3548,18 @@ public class SymbolLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testTextTranslateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-translateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextTranslateTransition(options);
+    assertEquals((TransitionOptions) layer.getTextTranslateTransition(), options);
+  }
+
+  @Test
   public void testTextTranslateAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("text-translate");
@@ -3028,6 +3594,18 @@ public class SymbolLayerTest extends BaseStyleTest {
     assertEquals(ExponentialStops.class, layer.getTextTranslate().getFunction().getStops().getClass());
     assertEquals(0.5f, ((ExponentialStops) layer.getTextTranslate().getFunction().getStops()).getBase(), 0.001);
     assertEquals(1, ((ExponentialStops) layer.getTextTranslate().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testTextTranslateAnchorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("text-translate-anchorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setTextTranslateAnchorTransition(options);
+    assertEquals((TransitionOptions) layer.getTextTranslateAnchorTransition(), options);
   }
 
   @Test

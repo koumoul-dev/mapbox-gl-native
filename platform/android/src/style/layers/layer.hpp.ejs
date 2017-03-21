@@ -38,6 +38,12 @@ public:
 <% for (const property of properties) { -%>
     jni::Object<jni::ObjectTag> get<%- camelize(property.name) %>(jni::JNIEnv&);
 
+<% if (!property.name.startsWith("symbol") && !property.name.startsWith("icon") && !property.name.startsWith("text") && !property.name.startsWith("line")) { -%>
+
+    jni::Array<jni::jlong> get<%- camelize(property.name) %>Transition(jni::JNIEnv&);
+
+    void set<%- camelize(property.name) %>Transition(jni::JNIEnv&, jlong duration, jlong delay);
+<% } -%>
 <% } -%>
     jni::jobject* createJavaPeer(jni::JNIEnv&);
 

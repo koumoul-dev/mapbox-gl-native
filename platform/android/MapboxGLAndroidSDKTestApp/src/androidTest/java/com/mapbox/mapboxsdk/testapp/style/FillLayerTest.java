@@ -36,6 +36,8 @@ import static org.junit.Assert.*;
 import static com.mapbox.mapboxsdk.style.layers.Property.*;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.*;
 
+import com.mapbox.mapboxsdk.style.TransitionOptions;
+
 /**
  * Basic smoke tests for FillLayer
  */
@@ -82,6 +84,18 @@ public class FillLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testFillAntialiasTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-antialiasTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillAntialiasTransition(options);
+    assertEquals((TransitionOptions) layer.getFillAntialiasTransition(), options);
+  }
+
+  @Test
   public void testFillAntialiasAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("fill-antialias");
@@ -115,6 +129,18 @@ public class FillLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getFillAntialias().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getFillAntialias().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getFillAntialias().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testFillOpacityTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-opacityTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillOpacityTransition(options);
+    assertEquals((TransitionOptions) layer.getFillOpacityTransition(), options);
   }
 
   @Test
@@ -263,6 +289,18 @@ public class FillLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testFillColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillColorTransition(options);
+    assertEquals((TransitionOptions) layer.getFillColorTransition(), options);
+  }
+
+  @Test
   public void testFillColorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("fill-color");
@@ -382,6 +420,18 @@ public class FillLayerTest extends BaseStyleTest {
     // Set and Get
     layer.setProperties(fillColor(Color.RED));
     assertEquals(layer.getFillColorAsInt(), Color.RED);
+  }
+
+  @Test
+  public void testFillOutlineColorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-outline-colorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillOutlineColorTransition(options);
+    assertEquals((TransitionOptions) layer.getFillOutlineColorTransition(), options);
   }
 
   @Test
@@ -507,6 +557,18 @@ public class FillLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testFillTranslateTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-translateTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillTranslateTransition(options);
+    assertEquals((TransitionOptions) layer.getFillTranslateTransition(), options);
+  }
+
+  @Test
   public void testFillTranslateAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("fill-translate");
@@ -544,6 +606,18 @@ public class FillLayerTest extends BaseStyleTest {
   }
 
   @Test
+  public void testFillTranslateAnchorTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-translate-anchorTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillTranslateAnchorTransition(options);
+    assertEquals((TransitionOptions) layer.getFillTranslateAnchorTransition(), options);
+  }
+
+  @Test
   public void testFillTranslateAnchorAsConstant() {
     checkViewIsDisplayed(R.id.mapView);
     Timber.i("fill-translate-anchor");
@@ -577,6 +651,18 @@ public class FillLayerTest extends BaseStyleTest {
     assertEquals(CameraFunction.class, layer.getFillTranslateAnchor().getFunction().getClass());
     assertEquals(IntervalStops.class, layer.getFillTranslateAnchor().getFunction().getStops().getClass());
     assertEquals(1, ((IntervalStops) layer.getFillTranslateAnchor().getFunction().getStops()).size());
+  }
+
+  @Test
+  public void testFillPatternTransitionOptions() {
+    checkViewIsDisplayed(R.id.mapView);
+    Timber.i("fill-patternTransitionOptions");
+    assertNotNull(layer);
+
+    // Set and Get
+    TransitionOptions options = new TransitionOptions(300, 100);
+    layer.setFillPatternTransition(options);
+    assertEquals((TransitionOptions) layer.getFillPatternTransition(), options);
   }
 
   @Test

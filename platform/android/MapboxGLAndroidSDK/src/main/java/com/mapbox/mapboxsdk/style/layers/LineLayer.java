@@ -8,6 +8,8 @@ import android.support.annotation.UiThread;
 
 import static com.mapbox.mapboxsdk.utils.ColorUtils.rgbaToColor;
 
+import com.mapbox.mapboxsdk.style.TransitionOptions;
+
 /**
  * A stroked line.
  *
@@ -101,6 +103,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineCap property transition options
+   *
+   * @return transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineCapTransition() {
+    long[]durations = nativeGetLineCapTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineCap property transition options
+   *
+   * @param transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineCapTransition(TransitionOptions options) {
+    nativeSetLineCapTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineJoin property
    *
    * @return property wrapper value around String
@@ -108,6 +131,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<String> getLineJoin() {
     return (PropertyValue<String>) new PropertyValue("line-join", nativeGetLineJoin());
+  }
+
+  /**
+   * Get the LineJoin property transition options
+   *
+   * @return transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineJoinTransition() {
+    long[]durations = nativeGetLineJoinTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineJoin property transition options
+   *
+   * @param transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineJoinTransition(TransitionOptions options) {
+    nativeSetLineJoinTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -121,6 +165,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineMiterLimit property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineMiterLimitTransition() {
+    long[]durations = nativeGetLineMiterLimitTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineMiterLimit property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineMiterLimitTransition(TransitionOptions options) {
+    nativeSetLineMiterLimitTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineRoundLimit property
    *
    * @return property wrapper value around Float
@@ -131,6 +196,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineRoundLimit property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineRoundLimitTransition() {
+    long[]durations = nativeGetLineRoundLimitTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineRoundLimit property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineRoundLimitTransition(TransitionOptions options) {
+    nativeSetLineRoundLimitTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineOpacity property
    *
    * @return property wrapper value around Float
@@ -138,6 +224,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<Float> getLineOpacity() {
     return (PropertyValue<Float>) new PropertyValue("line-opacity", nativeGetLineOpacity());
+  }
+
+  /**
+   * Get the LineOpacity property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineOpacityTransition() {
+    long[]durations = nativeGetLineOpacityTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineOpacity property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineOpacityTransition(TransitionOptions options) {
+    nativeSetLineOpacityTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -166,6 +273,26 @@ public class LineLayer extends Layer {
     }
   }
 
+  /**
+   * Get the LineColor property transition options
+   *
+   * @return transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineColorTransition() {
+    long[]durations = nativeGetLineColorTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineColor property transition options
+   *
+   * @param transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineColorTransition(TransitionOptions options) {
+    nativeSetLineColorTransition(options.getDuration(), options.getDelay());
+  }
 
   /**
    * Get the LineTranslate property
@@ -175,6 +302,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<Float[]> getLineTranslate() {
     return (PropertyValue<Float[]>) new PropertyValue("line-translate", nativeGetLineTranslate());
+  }
+
+  /**
+   * Get the LineTranslate property transition options
+   *
+   * @return transition options for Float[]
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineTranslateTransition() {
+    long[]durations = nativeGetLineTranslateTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineTranslate property transition options
+   *
+   * @param transition options for Float[]
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineTranslateTransition(TransitionOptions options) {
+    nativeSetLineTranslateTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -188,6 +336,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineTranslateAnchor property transition options
+   *
+   * @return transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineTranslateAnchorTransition() {
+    long[]durations = nativeGetLineTranslateAnchorTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineTranslateAnchor property transition options
+   *
+   * @param transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineTranslateAnchorTransition(TransitionOptions options) {
+    nativeSetLineTranslateAnchorTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineWidth property
    *
    * @return property wrapper value around Float
@@ -195,6 +364,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<Float> getLineWidth() {
     return (PropertyValue<Float>) new PropertyValue("line-width", nativeGetLineWidth());
+  }
+
+  /**
+   * Get the LineWidth property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineWidthTransition() {
+    long[]durations = nativeGetLineWidthTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineWidth property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineWidthTransition(TransitionOptions options) {
+    nativeSetLineWidthTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -208,6 +398,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineGapWidth property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineGapWidthTransition() {
+    long[]durations = nativeGetLineGapWidthTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineGapWidth property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineGapWidthTransition(TransitionOptions options) {
+    nativeSetLineGapWidthTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineOffset property
    *
    * @return property wrapper value around Float
@@ -215,6 +426,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<Float> getLineOffset() {
     return (PropertyValue<Float>) new PropertyValue("line-offset", nativeGetLineOffset());
+  }
+
+  /**
+   * Get the LineOffset property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineOffsetTransition() {
+    long[]durations = nativeGetLineOffsetTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineOffset property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineOffsetTransition(TransitionOptions options) {
+    nativeSetLineOffsetTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -228,6 +460,27 @@ public class LineLayer extends Layer {
   }
 
   /**
+   * Get the LineBlur property transition options
+   *
+   * @return transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineBlurTransition() {
+    long[]durations = nativeGetLineBlurTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineBlur property transition options
+   *
+   * @param transition options for Float
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineBlurTransition(TransitionOptions options) {
+    nativeSetLineBlurTransition(options.getDuration(), options.getDelay());
+  }
+
+  /**
    * Get the LineDasharray property
    *
    * @return property wrapper value around Float[]
@@ -235,6 +488,27 @@ public class LineLayer extends Layer {
   @SuppressWarnings("unchecked")
   public PropertyValue<Float[]> getLineDasharray() {
     return (PropertyValue<Float[]>) new PropertyValue("line-dasharray", nativeGetLineDasharray());
+  }
+
+  /**
+   * Get the LineDasharray property transition options
+   *
+   * @return transition options for Float[]
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLineDasharrayTransition() {
+    long[]durations = nativeGetLineDasharrayTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LineDasharray property transition options
+   *
+   * @param transition options for Float[]
+   */
+  @SuppressWarnings("unchecked")
+  public void setLineDasharrayTransition(TransitionOptions options) {
+    nativeSetLineDasharrayTransition(options.getDuration(), options.getDelay());
   }
 
   /**
@@ -247,34 +521,110 @@ public class LineLayer extends Layer {
     return (PropertyValue<String>) new PropertyValue("line-pattern", nativeGetLinePattern());
   }
 
+  /**
+   * Get the LinePattern property transition options
+   *
+   * @return transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public TransitionOptions getLinePatternTransition() {
+    long[]durations = nativeGetLinePatternTransition();
+    return new TransitionOptions(durations[0], durations[1]);
+  }
+
+ /**
+   * Set the LinePattern property transition options
+   *
+   * @param transition options for String
+   */
+  @SuppressWarnings("unchecked")
+  public void setLinePatternTransition(TransitionOptions options) {
+    nativeSetLinePatternTransition(options.getDuration(), options.getDelay());
+  }
+
   private native Object nativeGetLineCap();
+
+  private native long[] nativeGetLineCapTransition();
+
+  private native void nativeSetLineCapTransition(long duration, long delay);
 
   private native Object nativeGetLineJoin();
 
+  private native long[] nativeGetLineJoinTransition();
+
+  private native void nativeSetLineJoinTransition(long duration, long delay);
+
   private native Object nativeGetLineMiterLimit();
+
+  private native long[] nativeGetLineMiterLimitTransition();
+
+  private native void nativeSetLineMiterLimitTransition(long duration, long delay);
 
   private native Object nativeGetLineRoundLimit();
 
+  private native long[] nativeGetLineRoundLimitTransition();
+
+  private native void nativeSetLineRoundLimitTransition(long duration, long delay);
+
   private native Object nativeGetLineOpacity();
+
+  private native long[] nativeGetLineOpacityTransition();
+
+  private native void nativeSetLineOpacityTransition(long duration, long delay);
 
   private native Object nativeGetLineColor();
 
+  private native long[] nativeGetLineColorTransition();
+
+  private native void nativeSetLineColorTransition(long duration, long delay);
+
   private native Object nativeGetLineTranslate();
+
+  private native long[] nativeGetLineTranslateTransition();
+
+  private native void nativeSetLineTranslateTransition(long duration, long delay);
 
   private native Object nativeGetLineTranslateAnchor();
 
+  private native long[] nativeGetLineTranslateAnchorTransition();
+
+  private native void nativeSetLineTranslateAnchorTransition(long duration, long delay);
+
   private native Object nativeGetLineWidth();
+
+  private native long[] nativeGetLineWidthTransition();
+
+  private native void nativeSetLineWidthTransition(long duration, long delay);
 
   private native Object nativeGetLineGapWidth();
 
+  private native long[] nativeGetLineGapWidthTransition();
+
+  private native void nativeSetLineGapWidthTransition(long duration, long delay);
+
   private native Object nativeGetLineOffset();
+
+  private native long[] nativeGetLineOffsetTransition();
+
+  private native void nativeSetLineOffsetTransition(long duration, long delay);
 
   private native Object nativeGetLineBlur();
 
+  private native long[] nativeGetLineBlurTransition();
+
+  private native void nativeSetLineBlurTransition(long duration, long delay);
+
   private native Object nativeGetLineDasharray();
+
+  private native long[] nativeGetLineDasharrayTransition();
+
+  private native void nativeSetLineDasharrayTransition(long duration, long delay);
 
   private native Object nativeGetLinePattern();
 
+  private native long[] nativeGetLinePatternTransition();
+
+  private native void nativeSetLinePatternTransition(long duration, long delay);
 
   @Override
   protected native void finalize() throws Throwable;

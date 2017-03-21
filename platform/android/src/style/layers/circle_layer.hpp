@@ -29,24 +29,64 @@ public:
     // Property getters
     jni::Object<jni::ObjectTag> getCircleRadius(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleRadiusTransition(jni::JNIEnv&);
+
+    void setCircleRadiusTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleColor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleColorTransition(jni::JNIEnv&);
+
+    void setCircleColorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleBlur(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleBlurTransition(jni::JNIEnv&);
+
+    void setCircleBlurTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleOpacity(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleOpacityTransition(jni::JNIEnv&);
+
+    void setCircleOpacityTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleTranslate(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleTranslateTransition(jni::JNIEnv&);
+
+    void setCircleTranslateTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleTranslateAnchor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleTranslateAnchorTransition(jni::JNIEnv&);
+
+    void setCircleTranslateAnchorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCirclePitchScale(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCirclePitchScaleTransition(jni::JNIEnv&);
+
+    void setCirclePitchScaleTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleStrokeWidth(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleStrokeWidthTransition(jni::JNIEnv&);
+
+    void setCircleStrokeWidthTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleStrokeColor(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleStrokeColorTransition(jni::JNIEnv&);
+
+    void setCircleStrokeColorTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::Object<jni::ObjectTag> getCircleStrokeOpacity(jni::JNIEnv&);
 
+
+    jni::Array<jni::jlong> getCircleStrokeOpacityTransition(jni::JNIEnv&);
+
+    void setCircleStrokeOpacityTransition(jni::JNIEnv&, jlong duration, jlong delay);
     jni::jobject* createJavaPeer(jni::JNIEnv&);
 
 }; // class CircleLayer
