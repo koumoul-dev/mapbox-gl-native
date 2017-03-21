@@ -28,11 +28,13 @@ struct SpriteAtlas::Loader {
 };
 
 SpriteAtlasElement::SpriteAtlasElement(Rect<uint16_t> rect_,
-                                       std::shared_ptr<const SpriteImage> image_,
+                                       std::shared_ptr<const SpriteImage> spriteImage,
                                        Size size_, float pixelRatio)
     : pos(std::move(rect_)),
-      spriteImage(std::move(image_)),
-      relativePixelRatio(spriteImage->pixelRatio / pixelRatio) {
+      sdf(spriteImage->sdf),
+      relativePixelRatio(spriteImage->pixelRatio / pixelRatio),
+      width(spriteImage->getWidth()),
+      height(spriteImage->getHeight()) {
 
     const float padding = 1;
 
@@ -105,6 +107,10 @@ void SpriteAtlas::emitSpriteLoadedIfComplete() {
         loaded = true;
         setSprites(result.get<Sprites>());
         observer->onSpriteLoaded();
+        for (auto requestor : requestors) {
+            requestor->onIconsAvailable(this, buildIconMap());
+        }
+        requestors.clear();
     } else {
         observer->onSpriteError(result.get<std::exception_ptr>());
     }
@@ -119,20 +125,16 @@ void SpriteAtlas::dumpDebugLogs() const {
 }
 
 void SpriteAtlas::setSprites(const Sprites& newSprites) {
-    std::lock_guard<std::mutex> lock(mutex);
     for (const auto& pair : newSprites) {
         _setSprite(pair.first, pair.second);
     }
 }
 
 void SpriteAtlas::setSprite(const std::string& name, std::shared_ptr<const SpriteImage> sprite) {
-    std::lock_guard<std::mutex> lock(mutex);
     _setSprite(name, sprite);
 }
 
 void SpriteAtlas::removeSprite(const std::string& name) {
-    std::lock_guard<std::mutex> lock(mutex);
-
     auto it = entries.find(name);
     if (it == entries.end()) {
         return;
@@ -184,7 +186,6 @@ void SpriteAtlas::_setSprite(const std::string& name,
 }
 
 std::shared_ptr<const SpriteImage> SpriteAtlas::getSprite(const std::string& name) {
-    std::lock_guard<std::mutex> lock(mutex);
     const auto it = entries.find(name);
     if (it != entries.end()) {
         return it->second.spriteImage;
@@ -194,6 +195,18 @@ std::shared_ptr<const SpriteImage> SpriteAtlas::getSprite(const std::string& nam
         }
         return nullptr;
     }
+}
+
+void SpriteAtlas::getIcons(IconRequestor& requestor) {
+    if (isLoaded()) {
+        requestor.onIconsAvailable(this, buildIconMap());
+    } else {
+        requestors.insert(&requestor);
+    }
+}
+
+void SpriteAtlas::removeRequestor(IconRequestor& requestor) {
+    requestors.erase(&requestor);
 }
 
 optional<SpriteAtlasElement> SpriteAtlas::getIcon(const std::string& name) {
@@ -206,7 +219,6 @@ optional<SpriteAtlasElement> SpriteAtlas::getPattern(const std::string& name) {
 
 optional<SpriteAtlasElement> SpriteAtlas::getImage(const std::string& name,
                                                    optional<Rect<uint16_t>> Entry::*entryRect) {
-    std::lock_guard<std::mutex> lock(mutex);
 
     auto it = entries.find(name);
     if (it == entries.end()) {
@@ -219,6 +231,7 @@ optional<SpriteAtlasElement> SpriteAtlas::getImage(const std::string& name,
     Entry& entry = it->second;
 
     if (entry.*entryRect) {
+        assert(entry.spriteImage.get());
         return SpriteAtlasElement {
             *(entry.*entryRect),
             entry.spriteImage,
@@ -283,6 +296,17 @@ void SpriteAtlas::copy(const Entry& entry, optional<Rect<uint16_t>> Entry::*entr
     }
 
     dirty = true;
+}
+
+IconMap SpriteAtlas::buildIconMap() {
+    IconMap icons;
+    for (auto entry : entries) {
+        icons.emplace(std::piecewise_construct,
+                      std::forward_as_tuple(entry.first),
+                      std::forward_as_tuple(*getIcon(entry.first)));
+
+    }
+    return icons;
 }
 
 void SpriteAtlas::upload(gl::Context& context, gl::TextureUnit unit) {
