@@ -284,6 +284,8 @@ void Map::Impl::render(View& view) {
                               contextMode,
                               debugOptions };
 
+        backend.updateAssumedState();
+
         painter->render(*style,
                         frameData,
                         view,
@@ -321,6 +323,8 @@ void Map::Impl::render(View& view) {
                               mode,
                               contextMode,
                               debugOptions };
+
+        backend.updateAssumedState();
 
         try {
             painter->render(*style,
