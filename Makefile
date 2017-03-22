@@ -361,14 +361,17 @@ endif
 
 #### Qt targets #####################################################
 
-ifeq ($(WITH_QT_4), 1)
-QT_ROOT_PATH = build/qt4-$(BUILD_PLATFORM)-$(BUILD_PLATFORM_VERSION)
-else
-QT_ROOT_PATH = build/qt-$(BUILD_PLATFORM)-$(BUILD_PLATFORM_VERSION)
-endif
-
 ifneq (,$(shell which qmake))
 export QT_INSTALL_DOCS = $(shell qmake -query QT_INSTALL_DOCS)
+
+ifeq ($(shell qmake -query QT_VERSION | head -c1), 4)
+QT_ROOT_PATH = build/qt4-$(BUILD_PLATFORM)-$(BUILD_PLATFORM_VERSION)
+WITH_QT_4=1
+else
+QT_ROOT_PATH = build/qt-$(BUILD_PLATFORM)-$(BUILD_PLATFORM_VERSION)
+WITH_QT_4=0
+endif
+
 endif
 
 export QT_OUTPUT_PATH = $(QT_ROOT_PATH)/$(BUILDTYPE)
