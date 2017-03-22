@@ -11,7 +11,16 @@
 #include "conversion/conversion.hpp"
 #include "conversion/collection.hpp"
 #include "file_source.hpp"
-#include "geometry/feature.hpp"
+#include "geojson/feature.hpp"
+#include "geojson/feature_collection.hpp"
+#include "geojson/geometry.hpp"
+#include "geojson/line_string.hpp"
+#include "geojson/multi_line_string.hpp"
+#include "geojson/multi_point.hpp"
+#include "geojson/multi_polygon.hpp"
+#include "geojson/point.hpp"
+#include "geojson/polygon.hpp"
+#include "geojson/position.hpp"
 #include "geometry/lat_lng.hpp"
 #include "geometry/lat_lng_bounds.hpp"
 #include "geometry/projected_meters.hpp"
@@ -97,8 +106,19 @@ void registerNatives(JavaVM *vm) {
     PointF::registerNative(env);
     RectF::registerNative(env);
 
+    // GeoJSON
+    geojson::Feature::registerNative(env);
+    geojson::FeatureCollection::registerNative(env);
+    geojson::Geometry::registerNative(env);
+    geojson::LineString::registerNative(env);
+    geojson::MultiLineString::registerNative(env);
+    geojson::MultiPoint::registerNative(env);
+    geojson::MultiPolygon::registerNative(env);
+    geojson::Point::registerNative(env);
+    geojson::Polygon::registerNative(env);
+    geojson::Position::registerNative(env);
+
     // Geometry
-    Feature::registerNative(env);
     LatLng::registerNative(env);
     LatLngBounds::registerNative(env);
     ProjectedMeters::registerNative(env);

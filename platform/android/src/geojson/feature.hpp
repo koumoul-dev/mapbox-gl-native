@@ -1,7 +1,8 @@
 #pragma once
 
-#include <mbgl/util/noncopyable.hpp>
+#include <mbgl/util/feature.hpp>
 #include <mbgl/util/geometry.hpp>
+#include <mbgl/util/noncopyable.hpp>
 
 #include <jni/jni.hpp>
 
@@ -10,6 +11,7 @@
 
 namespace mbgl {
 namespace android {
+namespace geojson {
 
 class Feature : private mbgl::util::noncopyable {
 public:
@@ -18,12 +20,16 @@ public:
 
     static jni::Object<Feature> fromGeometry(jni::JNIEnv&, jni::Object<Geometry>, jni::Object<JsonObject>, jni::String);
 
+    static mbgl::Feature convert(jni::JNIEnv&, jni::Object<Feature>);
+
+    static jni::Object<Geometry> getGeometry(jni::JNIEnv&, jni::Object<Feature>);
+
     static jni::Class<Feature> javaClass;
 
     static void registerNative(jni::JNIEnv&);
 
 };
 
-
+} // namespace geojson
 } // namespace android
 } // namespace mbgl
